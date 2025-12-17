@@ -1,0 +1,55 @@
+index.html
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+<meta charset="UTF-8">
+<title>Warning</title>
+
+<style>
+body {
+  background-color: black;
+  color: #00ff88;
+  font-family: monospace;
+  padding: 40px;
+  font-size: 28px; /* حجم الخط كبير */
+}
+
+.line {
+  margin-bottom: 15px;
+}
+</style>
+</head>
+
+<body>
+<div id="content"></div>
+
+<script>
+const lines = [
+  "جارٍ الاتصال بالخادم...",
+  "فحص الجهاز...",
+  "تحليل البيانات...",
+  "⚠️ تحذير أمني",
+  "تم رصد نشاط مشبوه",
+  "هذا رابط تجريبي",
+  "لا تضغط على روابط مجهولة",
+  "احمِ معلوماتك"
+];
+
+let i = 0;
+const box = document.getElementById("content");
+
+function showText() {
+  if (i < lines.length) {
+    const d = document.createElement("div");
+    d.className = "line";
+    d.textContent = lines[i];
+    box.appendChild(d);
+    i++;
+    setTimeout(showText, 900); // كل سطر يطلع بشويش
+  }
+}
+
+showText();
+</script>
+</body>
+</html>
